@@ -9,9 +9,10 @@ app = FastAPI(title="BlackRoad AI Chain")
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
 
 NODES = {
-    "octavia": {"ip": "127.0.0.1", "port": 11437, "model": "deepseek-r1:1.5b", "role": "reasoning"},
-    "lucidia": {"ip": "127.0.0.1", "port": 11436, "model": "tinyllama:latest",  "role": "personality"},
-    "alice":   {"ip": "127.0.0.1", "port": 11435, "model": "tinyllama:latest",  "role": "fallback"},
+    "octavia": {"ip": "127.0.0.1", "port": 11437, "model": "deepseek-r1:1.5b",   "role": "reasoning"},
+    "aria":    {"ip": "127.0.0.1", "port": 11438, "model": "qwen2.5-coder:3b",   "role": "code"},
+    "lucidia": {"ip": "127.0.0.1", "port": 11436, "model": "tinyllama:latest",    "role": "personality"},
+    "alice":   {"ip": "127.0.0.1", "port": 11435, "model": "tinyllama:latest",    "role": "fallback"},
 }
 
 async def ollama_generate(ip, port, model, prompt, timeout=300):
